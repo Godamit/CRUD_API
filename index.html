@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management System | CRUD API</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>👤 User Manager</h1>
+            <p class="subtitle">Secure CRUD Operations Interface</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="register">➕ Register</button>
+            <button class="tab-btn" data-tab="retrieve">🔍 Search</button>
+            <button class="tab-btn" data-tab="update">📝 Update</button>
+            <button class="tab-btn" data-tab="delete">🗑️ Delete</button>
+        </nav>
+
+        <main>
+            <!-- Register Tab -->
+            <section id="register" class="tab-content active">
+                <h2><span>✨</span> Create New Account</h2>
+                <form id="registerForm" class="form">
+                    <div class="form-group">
+                        <label for="reg-name">Full Name</label>
+                        <input type="text" id="reg-name" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-email">Email Address</label>
+                        <input type="email" id="reg-email" name="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-password">Security Password</label>
+                        <input type="password" id="reg-password" name="password" placeholder="Min. 6 characters" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-phone">Phone Number</label>
+                        <input type="tel" id="reg-phone" name="phone" placeholder="10-digit number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-role">Access Role</label>
+                        <select id="reg-role" name="role">
+                            <option value="user" selected>User</option>
+                            <option value="admin">Administrator</option>
+                            <option value="moderator">Moderator</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create User</button>
+                </form>
+                <div id="registerMessage" class="message"></div>
+            </section>
+
+            <!-- Retrieve Tab -->
+            <section id="retrieve" class="tab-content">
+                <h2><span>🔍</span> Find User Record</h2>
+                <form id="retrieveForm" class="form">
+                    <div class="form-group">
+                        <label for="retrieve-id">System User ID</label>
+                        <input type="number" id="retrieve-id" name="id" placeholder="Enter ID (e.g. 1)" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Fetch Details</button>
+                </form>
+                <div id="retrieveMessage" class="message"></div>
+                <div id="userDetails" class="user-details"></div>
+            </section>
+
+            <!-- Update Tab -->
+            <section id="update" class="tab-content">
+                <h2><span>📝</span> Modify Information</h2>
+                <form id="updateForm" class="form">
+                    <div class="form-group">
+                        <label for="update-id">Target User ID</label>
+                        <input type="number" id="update-id" name="id" placeholder="ID to update" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="update-name">Updated Name</label>
+                        <input type="text" id="update-name" name="name" placeholder="Enter new name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="update-email">Updated Email</label>
+                        <input type="email" id="update-email" name="email" placeholder="Enter new email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="update-phone">Updated Phone</label>
+                        <input type="tel" id="update-phone" name="phone" placeholder="Enter new phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="update-role">Updated Role</label>
+                        <select id="update-role" name="role">
+                            <option value="user" selected>User</option>
+                            <option value="admin">Administrator</option>
+                            <option value="moderator">Moderator</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+                <div id="updateMessage" class="message"></div>
+            </section>
+
+            <!-- Delete Tab -->
+            <section id="delete" class="tab-content">
+                <h2><span>🗑️</span> Remove User</h2>
+                <form id="deleteForm" class="form">
+                    <div class="form-group">
+                        <label for="delete-id">User ID to Terminate</label>
+                        <input type="number" id="delete-id" name="id" placeholder="ID to delete" required>
+                    </div>
+                    <div class="warning-box">
+                        <p class="warning">⚠️ Warning: Deleting a user is a permanent action and cannot be reversed.</p>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Delete Permanently</button>
+                </form>
+                <div id="deleteMessage" class="message"></div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>PHP CRUD API Dashboard &bull; v2.0 &bull; Built with ❤️</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
