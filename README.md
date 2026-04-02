@@ -5,6 +5,8 @@ The API supports secure user registration, retrieval, update, and deletion with 
 
 ---
 
+![alt text](image.png)
+
 ## Features
 
 - User Registration (password hashing)
